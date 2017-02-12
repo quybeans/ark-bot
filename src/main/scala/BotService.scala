@@ -1,14 +1,7 @@
 import akka.actor.ActorSystem
-import akka.http.javadsl.unmarshalling.Unmarshaller
 import akka.stream.ActorMaterializer
 import akka.http.scaladsl.Http
-import akka.http.scaladsl.common.StrictForm
-import akka.http.scaladsl.model.HttpEntity
 import akka.http.scaladsl.server.Directives._
-import akka.http.scaladsl.unmarshalling.Unmarshal
-import _root_.entity.HookResponse
-
-import scala.concurrent.Future
 import scala.io.StdIn
 
 object BotService extends App {
@@ -30,22 +23,17 @@ object BotService extends App {
         complete("Something nice")
     }~
       (path("slack-hook") & post) {
-//        parameter('token.as[String],
-//        'team_id.as[String],
-//        'team_domain.as[String],
-//        'service_id.as[String],
-//        'channel_id.as[String],
-//        'channel_name.as[String],
-//        'timestamp.as[String],
-//        'user_id.as[String],
-//        'user_name.as[String],
-//        'text.as[String]).as(HookResponse) { response =>
-//        println(response.text)
-//        complete("Complete")
-//        }
 
         entity(as[String]) { data=> {
-            println(data)
+            //println(data)
+          data.split("&")
+            .foreach(item => item.split("=")
+              .foreach(head => {
+                if (head.equals("text"))
+                  println(item.split("=")(1))
+              })
+            )
+          
           complete("Complete")
           }
         }
