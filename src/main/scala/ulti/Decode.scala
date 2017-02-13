@@ -1,5 +1,7 @@
 package ulti
 
+import java.net.URLEncoder
+
 import scala.util.Try
 
 /**
@@ -11,8 +13,11 @@ object Decode {
 
   trait Extract {
     def charset: Charset
-    def unapply(raw: String) =
+    def decode(raw: String) =
       Try(URLDecoder.decode(raw, charset.name())).toOption.get
+
+    def encode(raw: String) =
+      Try(URLEncoder.encode(raw, charset.name())).toOption.get
   }
 
   object utf8 extends Extract {

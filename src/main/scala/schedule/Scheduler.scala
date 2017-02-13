@@ -1,6 +1,7 @@
 package schedule
 
 import akka.actor.ActorSystem
+import scala.concurrent.duration._
 
 /**
   * Created by quybeans on 2/12/17.
@@ -8,9 +9,8 @@ import akka.actor.ActorSystem
 object Scheduler {
   val actorSystem =   ActorSystem()
   val scheduler = actorSystem.scheduler
-  val task = new Runnable {
-    override def run() = ???
-  }
 
-
+//  def doSchedule(doSomeThing: () => Unit) = {
+//    scheduler.schedule(0 seconds, 5 minutes)(doSomeThing)
+//  }
 }
