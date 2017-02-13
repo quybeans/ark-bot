@@ -11,7 +11,7 @@ object BotService extends App {
   implicit val executionContext = system.dispatcher
 
 
-
+    def printMessage(name: String, text: String) = println(name + " : " + text)
 
     val route = {
     pathEndOrSingleSlash{
@@ -24,16 +24,17 @@ object BotService extends App {
     }~
       (path("slack-hook") & post) {
 
-        entity(as[String]) { data=> {
-            //println(data)
-          data.split("&")
-            .foreach(item => item.split("=")
-              .foreach(head => {
-                if (head.equals("text"))
-                  println(item.split("=")(1))
-              })
-            )
-          
+        entity(as[String]) {
+          data => {
+          def getText(x:Array[String]) =
+            if (x(0).equals("text")) {
+              print(" : " + ulti.Decode.utf8.unapply(x(1)) + "\n")
+            } else if (x(0).equals("user_name")) {
+              print(ulti.Decode.utf8.unapply(x(1)))
+            } else None
+
+          val rs = data.split("&").foreach(rs => getText(rs.split("=")))
+
           complete("Complete")
           }
         }

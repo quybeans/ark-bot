@@ -4,7 +4,7 @@
 		module="ark-facts-slackbot$sources_2.12"
 		revision="1.0"
 		status="integration"
-		publication="20170211074428"
+		publication="20170212234238"
 	/>
 	<configurations>
 		<conf name="compile" visibility="public" description=""/>
@@ -36,7 +36,7 @@
 		<dependency org="org.scala-lang.modules" name="scala-xml_2.12" rev="1.0.6" transitive="false" conf="scala-tool->compile,runtime(*),master(compile),runtime,compile(*),master">
 			<artifact name="scala-xml_2.12" type="src" ext="jar" conf="sources" e:classifier="sources"/>
 		</dependency>
-		<dependency org="com.typesafe.akka" name="akka-actor_2.12" rev="2.4.16" transitive="false" conf="compile->master(*),compile,runtime(*),runtime,compile(*),master;runtime->master(*),compile,runtime(*),runtime,compile(*),master;test->master(*),compile,runtime(*),runtime,compile(*),master;compile-internal->master(*),compile,runtime(*),runtime,compile(*),master;runtime-internal->master(*),compile,runtime(*),runtime,compile(*),master;test-internal->master(*),compile,runtime(*),runtime,compile(*),master" info.apiURL="http://doc.akka.io/api/akka/2.4.16">
+		<dependency org="com.typesafe.akka" name="akka-actor_2.12" rev="2.4.16" transitive="false" conf="compile->master(*),default,compile,runtime(*),runtime,default(compile),compile(*),master;runtime->master(*),default,compile,runtime(*),runtime,default(compile),compile(*),master;test->master(*),default,compile,runtime(*),runtime,default(compile),compile(*),master;compile-internal->master(*),default,compile,runtime(*),runtime,default(compile),compile(*),master;runtime-internal->master(*),default,compile,runtime(*),runtime,default(compile),compile(*),master;test-internal->master(*),default,compile,runtime(*),runtime,default(compile),compile(*),master" info.apiURL="http://doc.akka.io/api/akka/2.4.16">
 			<artifact name="akka-actor_2.12" type="src" ext="jar" conf="sources" e:classifier="sources"/>
 		</dependency>
 		<dependency org="com.typesafe.akka" name="akka-http_2.12" rev="10.0.1" transitive="false" conf="compile->default,compile,runtime,default(compile),master;runtime->default,compile,runtime,default(compile),master;test->default,compile,runtime,default(compile),master;compile-internal->default,compile,runtime,default(compile),master;runtime-internal->default,compile,runtime,default(compile),master;test-internal->default,compile,runtime,default(compile),master">

@@ -4,7 +4,7 @@
 		module="ark-facts-slackbot_2.12"
 		revision="1.0"
 		status="integration"
-		publication="20170210160309"
+		publication="20170212234237"
 	>
 		<description>
 		ark-facts-slackbot
@@ -36,5 +36,6 @@
 		<dependency org="org.scala-lang" name="scala-library" rev="2.12.1" conf="scala-tool->default,optional(default);compile->default(compile)"/>
 		<dependency org="com.typesafe.akka" name="akka-http-core_2.12" rev="10.0.1" conf="compile->default(compile)"/>
 		<dependency org="com.typesafe.akka" name="akka-http_2.12" rev="10.0.1" conf="compile->default(compile)"/>
+		<dependency org="com.typesafe.akka" name="akka-actor_2.12" rev="2.4.16" conf="compile->default(compile)"/>
 	</dependencies>
 </ivy-module>
