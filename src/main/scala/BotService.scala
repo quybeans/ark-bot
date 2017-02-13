@@ -26,14 +26,8 @@ object BotService extends App {
 
         entity(as[String]) {
           data => {
-          def getText(x:Array[String]) =
-            if (x(0).equals("text")) {
-              print(" : " + ulti.Decode.utf8.unapply(x(1)) + "\n")
-            } else if (x(0).equals("user_name")) {
-              print(ulti.Decode.utf8.unapply(x(1)))
-            } else None
-
-          val rs = data.split("&").foreach(rs => getText(rs.split("=")))
+            val map =  data.split("&|\\=").toList.grouped(2).map { case List(k,v) => k -> v }.toMap
+            println(map.get("user_name").get + " : " + ulti.Decode.utf8.unapply(map.get("text").get))
 
           complete("Complete")
           }

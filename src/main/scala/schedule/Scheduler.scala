@@ -12,6 +12,5 @@ object Scheduler {
     override def run() = ???
   }
 
-'
-  scheduler.schedule(100,100,print(""))
+
 }
